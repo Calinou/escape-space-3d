@@ -1,8 +1,5 @@
+class_name Player
 extends RigidBody3D
-
-@export var paddle: MeshInstance3D
-@export var camera: Camera3D
-@export var score_label: Label3D
 
 ## The mouse sensitivity factor.
 const MOUSE_SENSITIVITY = 0.1
@@ -23,7 +20,7 @@ const CAMERA_FRICTION = 0.95
 # Stores mouse and keyboard/gamepad movement velocity on the X and Z axes.
 var movement := Vector2()
 
-@onready var camera_base_rotation := camera.rotation
+@onready var camera_base_rotation: Vector3 = %Camera3D.rotation
 
 var camera_added_rotation := Vector3()
 
@@ -31,7 +28,7 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 	# Cap FPS to refresh rate as V-Sync is disabled to reduce input lag.
-	Engine.max_fps = DisplayServer.screen_get_refresh_rate() + 1
+	Engine.max_fps = int(DisplayServer.screen_get_refresh_rate()) + 1
 
 
 func _input(event: InputEvent) -> void:
@@ -47,14 +44,13 @@ func _input(event: InputEvent) -> void:
 
 
 func _process(_delta: float) -> void:
-	if Game.score > int(score_label.text):
-		print("increase")
+	if Game.score > int(%ScoreLabel.text):
 		# Tint score if it has recently increased.
-		score_label.outline_modulate = Color.YELLOW
+		%ScoreLabel.outline_modulate = Color.YELLOW
 
-	score_label.text = str(Game.score)
+	%ScoreLabel.text = str(Game.score)
 	# Fade score outline towards black continuously.
-	score_label.outline_modulate = score_label.outline_modulate.lerp(Color.BLACK, 0.05)
+	%ScoreLabel.outline_modulate = %ScoreLabel.outline_modulate.lerp(Color.BLACK, 0.05)
 
 
 func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
@@ -66,18 +62,18 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	movement *= FRICTION
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	# Lean paddle depending on movement speed.
 	const MAX_LEAN_SPEED = 65.0
 	const MAX_LEAN_ANGLE = deg_to_rad(15)
-	paddle.rotation.z = clampf(remap(linear_velocity.x, -MAX_LEAN_SPEED, MAX_LEAN_SPEED, MAX_LEAN_ANGLE, -MAX_LEAN_ANGLE), -MAX_LEAN_ANGLE, MAX_LEAN_ANGLE)
-	paddle.rotation.x = -clampf(remap(linear_velocity.z, -MAX_LEAN_SPEED, MAX_LEAN_SPEED, MAX_LEAN_ANGLE, -MAX_LEAN_ANGLE), -MAX_LEAN_ANGLE, MAX_LEAN_ANGLE)
+	%Paddle.rotation.z = clampf(remap(linear_velocity.x, -MAX_LEAN_SPEED, MAX_LEAN_SPEED, MAX_LEAN_ANGLE, -MAX_LEAN_ANGLE), -MAX_LEAN_ANGLE, MAX_LEAN_ANGLE)
+	%Paddle.rotation.x = -clampf(remap(linear_velocity.z, -MAX_LEAN_SPEED, MAX_LEAN_SPEED, MAX_LEAN_ANGLE, -MAX_LEAN_ANGLE), -MAX_LEAN_ANGLE, MAX_LEAN_ANGLE)
 
 	# Tilt camera depending on movement speed.
 	camera_added_rotation.x += clampf(remap(linear_velocity.z, -MAX_LEAN_SPEED * 25, MAX_LEAN_SPEED * 25, MAX_LEAN_ANGLE, -MAX_LEAN_ANGLE), -MAX_LEAN_ANGLE, MAX_LEAN_ANGLE)
 	camera_added_rotation.y += clampf(remap(linear_velocity.x, -MAX_LEAN_SPEED * 25, MAX_LEAN_SPEED * 25, MAX_LEAN_ANGLE, -MAX_LEAN_ANGLE), -MAX_LEAN_ANGLE, MAX_LEAN_ANGLE)
 
-	camera.rotation.x = camera_base_rotation.x + camera_added_rotation.x
-	camera.rotation.y = camera_base_rotation.y + camera_added_rotation.y
+	%Camera3D.rotation.x = camera_base_rotation.x + camera_added_rotation.x
+	%Camera3D.rotation.y = camera_base_rotation.y + camera_added_rotation.y
 
 	camera_added_rotation *= CAMERA_FRICTION

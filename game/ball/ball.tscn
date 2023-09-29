@@ -120,19 +120,18 @@ stream_2/weight = 1.0
 stream_3/stream = ExtResource("5_x7coo")
 stream_3/weight = 1.0
 
-[node name="Ball" type="RigidBody3D" node_paths=PackedStringArray("comet", "audio_stream_player")]
+[node name="Ball" type="RigidBody3D"]
 axis_lock_linear_y = true
 physics_material_override = SubResource("PhysicsMaterial_ada03")
 max_contacts_reported = 1
 contact_monitor = true
 script = ExtResource("1_vrjnt")
-comet = NodePath("Comet")
-audio_stream_player = NodePath("AudioStreamPlayer3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_5e15e")
 
 [node name="Comet" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
 gi_mode = 0
 mesh = SubResource("SphereMesh_eobi2")
 surface_material_override/0 = SubResource("StandardMaterial3D_3pgsi")
@@ -163,6 +162,7 @@ light_bake_mode = 0
 omni_attenuation = 2.0
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_cmy56")
 unit_size = 20.0
 max_polyphony = 2

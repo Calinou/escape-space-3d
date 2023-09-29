@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://cl8eq8bfirbs6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_j1587"]
+lightmap_size_hint = Vector2i(5, 16)
+size = Vector3(0.15, 1, 0.15)
+
+[sub_resource type="SphereMesh" id="SphereMesh_55ykv"]
+lightmap_size_hint = Vector2i(8, 5)
+radius = 0.2
+height = 0.4
+radial_segments = 32
+rings = 16
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jo737"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 2.0
+
+[node name="Lamp" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_j1587")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("SphereMesh_55ykv")
+surface_material_override/0 = SubResource("StandardMaterial3D_jo737")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+light_energy = 4.0
+light_size = 0.1
+light_bake_mode = 1
+omni_range = 16.0

@@ -1,0 +1,79 @@
+[gd_scene load_steps=12 format=3 uid="uid://bgj64kqq8u8fw"]
+
+[ext_resource type="Script" path="res://game/structures/teleport.gd" id="1_xtb75"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eep2u"]
+size = Vector3(2, 2, 2)
+
+[sub_resource type="Gradient" id="Gradient_nbth0"]
+offsets = PackedFloat32Array(0, 0.756345, 0.913706, 1)
+colors = PackedColorArray(0, 0.211765, 0.419608, 1, 0.0434532, 0.123431, 0.154931, 1, 0.615686, 1, 1, 1, 0, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uxh6y"]
+gradient = SubResource("Gradient_nbth0")
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0egb7"]
+albedo_texture = SubResource("GradientTexture2D_uxh6y")
+emission_enabled = true
+emission_texture = SubResource("GradientTexture2D_uxh6y")
+uv1_scale = Vector3(3, 2, 1)
+texture_filter = 5
+
+[sub_resource type="BoxMesh" id="BoxMesh_cjbs8"]
+lightmap_size_hint = Vector2i(34, 23)
+material = SubResource("StandardMaterial3D_0egb7")
+add_uv2 = true
+size = Vector3(3, 0.2, 3)
+
+[sub_resource type="Curve" id="Curve_xupxd"]
+_data = [Vector2(0, 0.1), 0.0, 0.0, 0, 0, Vector2(0.1, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_wot80"]
+curve = SubResource("Curve_xupxd")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8ihy0"]
+emission_shape = 3
+emission_box_extents = Vector3(1.4, 0, 1.4)
+gravity = Vector3(0, 15, 0)
+scale_curve = SubResource("CurveTexture_wot80")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lidlo"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0, 0, 0, 1)
+emission_enabled = true
+emission = Color(0.12549, 0.752941, 1, 1)
+emission_energy_multiplier = 16.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_6arn1"]
+material = SubResource("StandardMaterial3D_lidlo")
+top_radius = 0.0
+bottom_radius = 0.05
+height = 1.0
+radial_segments = 4
+rings = 1
+cap_top = false
+cap_bottom = false
+
+[node name="Teleport" type="Area3D"]
+script = ExtResource("1_xtb75")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_eep2u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_cjbs8")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+cast_shadow = 0
+gi_mode = 0
+amount = 25
+fixed_fps = 0
+interpolate = false
+process_material = SubResource("ParticleProcessMaterial_8ihy0")
+draw_pass_1 = SubResource("CylinderMesh_6arn1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
