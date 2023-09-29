@@ -67,6 +67,7 @@ fill_to = Vector2(0.5, 0)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s6xh3"]
 render_priority = 127
 transparency = 1
+blend_mode = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
 albedo_color = Color(5, 5, 5, 1)

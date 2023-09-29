@@ -1,6 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://cdrkc4wr0vviy"]
+[gd_scene load_steps=14 format=3 uid="uid://cdrkc4wr0vviy"]
 
 [ext_resource type="FontFile" uid="uid://d07hcp3odal6b" path="res://game/fonts/segment_7_standard.otf" id="1_c2uyo"]
+[ext_resource type="Script" path="res://game/structures/time_display.gd" id="1_hbo8s"]
+
+[sub_resource type="Gradient" id="Gradient_ssto7"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(0, 0.501961, 1, 1, 1, 0.952941, 0, 1, 1, 0, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_18tvi"]
 size = Vector3(0.2, 2, 0.2)
@@ -14,28 +19,39 @@ size = Vector3(1.5, 0.6, 0.2)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qr32q"]
 albedo_color = Color(0, 0, 0, 1)
 
+[sub_resource type="FontVariation" id="FontVariation_8i8r7"]
+base_font = ExtResource("1_c2uyo")
+spacing_space = -2
+
 [sub_resource type="TextMesh" id="TextMesh_rv07a"]
 text = "8 88"
-font = ExtResource("1_c2uyo")
+font = SubResource("FontVariation_8i8r7")
 pixel_size = 0.03
 depth = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gcqig"]
-albedo_color = Color(0, 0, 0, 1)
+albedo_color = Color(0.14902, 0.14902, 0.14902, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_gwkde"]
+base_font = ExtResource("1_c2uyo")
+spacing_space = -2
 
 [sub_resource type="TextMesh" id="TextMesh_wlyd5"]
 text = "0 00"
-font = ExtResource("1_c2uyo")
+font = SubResource("FontVariation_gwkde")
 pixel_size = 0.03
 depth = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4w3pg"]
 albedo_color = Color(0, 0, 0, 1)
 emission_enabled = true
-emission = Color(0, 0.443137, 0.882353, 1)
-emission_energy_multiplier = 16.0
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 12.0
 
-[node name="TimeDisplay" type="Node3D"]
+[node name="TimeDisplay" type="Node3D" node_paths=PackedStringArray("text_foreground")]
+script = ExtResource("1_hbo8s")
+text_foreground = NodePath("Node3D/Pylon/Display/TextBackground/TextForeground")
+time_color = SubResource("Gradient_ssto7")
 
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
@@ -52,7 +68,7 @@ mesh = SubResource("BoxMesh_laufh")
 surface_material_override/0 = SubResource("StandardMaterial3D_qr32q")
 
 [node name="TextBackground" type="MeshInstance3D" parent="Node3D/Pylon/Display"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.04, 0.125)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.04, 0.11)
 mesh = SubResource("TextMesh_rv07a")
 surface_material_override/0 = SubResource("StandardMaterial3D_gcqig")
 

@@ -13,6 +13,10 @@ config_version=5
 run/main_scene="res://game/levels/1.tscn"
 config/features=PackedStringArray("4.2")
 
+[autoload]
+
+Game="*res://autoload/game.gd"
+
 [display]
 
 window/stretch/mode="canvas_items"

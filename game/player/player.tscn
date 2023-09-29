@@ -1,6 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://bcyjl4mely6oa"]
+[gd_scene load_steps=20 format=3 uid="uid://bcyjl4mely6oa"]
 
 [ext_resource type="Script" path="res://game/player/player.gd" id="1_75vtu"]
+[ext_resource type="FontFile" uid="uid://dsjfgvdmaeepe" path="res://game/fonts/tomorrow_semi_bold_italic.ttf" id="2_nd0i5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hdu5j"]
 friction = 0.0
@@ -76,7 +77,7 @@ particles_anim_loop = false
 [sub_resource type="QuadMesh" id="QuadMesh_i4jvs"]
 material = SubResource("StandardMaterial3D_nd14y")
 
-[node name="Player" type="RigidBody3D" node_paths=PackedStringArray("paddle")]
+[node name="Player" type="RigidBody3D" node_paths=PackedStringArray("paddle", "camera", "score_label")]
 axis_lock_linear_y = true
 physics_material_override = SubResource("PhysicsMaterial_hdu5j")
 can_sleep = false
@@ -85,6 +86,8 @@ custom_integrator = true
 continuous_cd = true
 script = ExtResource("1_75vtu")
 paddle = NodePath("Paddle")
+camera = NodePath("Camera3D")
+score_label = NodePath("Paddle/Score")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_ssaee")
@@ -105,13 +108,19 @@ skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_0wh7i")
 
 [node name="Character" type="MeshInstance3D" parent="Paddle"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, -0.2)
 gi_mode = 2
 mesh = SubResource("CapsuleMesh_88i3q")
 surface_material_override/0 = SubResource("StandardMaterial3D_xewr8")
 
+[node name="Score" type="Label3D" parent="Paddle"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.13, 0.45)
+pixel_size = 0.0125
+text = "800"
+font = ExtResource("2_nd0i5")
+
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 10, 5.5)
+transform = Transform3D(1, 0, 0, 0, 0.573577, 0.819152, 0, -0.819152, 0.573577, 0, 10, 5.5)
 fov = 74.0
 near = 0.1
 

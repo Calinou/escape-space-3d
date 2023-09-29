@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://x3p61k6mhbjy"]
+[gd_scene load_steps=31 format=3 uid="uid://x3p61k6mhbjy"]
 
 [ext_resource type="Script" path="res://game/utils/rotating_directional_light.gd" id="1_1plx3"]
 [ext_resource type="MeshLibrary" uid="uid://dfny74r7uljuc" path="res://game/tiles/mesh_library.tres" id="1_w1wc8"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cdrkc4wr0vviy" path="res://game/structures/time_display.tscn" id="11_qqkiw"]
 [ext_resource type="PackedScene" uid="uid://b8wrfu06obbyd" path="res://game/ball/ball.tscn" id="12_e21l6"]
 [ext_resource type="PackedScene" uid="uid://48e87pa5n3hx" path="res://game/bricks/brick.tscn" id="13_tt57p"]
+[ext_resource type="FontFile" uid="uid://dsjfgvdmaeepe" path="res://game/fonts/tomorrow_semi_bold_italic.ttf" id="14_annrq"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_epxyj"]
 rayleigh_color = Color(0.266667, 0.380392, 0.717647, 1)
@@ -273,3 +274,48 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 3, 4)
 
 [node name="Brick12" parent="." instance=ExtResource("13_tt57p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3, 4)
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -6, 7, 13)
+visibility_range_begin = 10.0
+visibility_range_begin_margin = 4.0
+visibility_range_end = 18.0
+visibility_range_end_margin = 4.0
+visibility_range_fade_mode = 1
+pixel_size = 0.02
+double_sided = false
+render_priority = 127
+outline_render_priority = 126
+text = "Use the mouse, arrow keys or left stick
+to move the paddle"
+font = ExtResource("14_annrq")
+
+[node name="Label3D2" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -10, 7, 4)
+visibility_range_begin = 10.0
+visibility_range_begin_margin = 4.0
+visibility_range_end = 18.0
+visibility_range_end_margin = 4.0
+visibility_range_fade_mode = 1
+pixel_size = 0.02
+double_sided = false
+render_priority = 127
+outline_render_priority = 126
+text = "Break these bricks
+using the comet"
+font = ExtResource("14_annrq")
+
+[node name="Label3D3" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, -6, 4, 16)
+visibility_range_begin = 10.0
+visibility_range_begin_margin = 4.0
+visibility_range_end = 18.0
+visibility_range_end_margin = 4.0
+visibility_range_fade_mode = 1
+pixel_size = 0.02
+double_sided = false
+render_priority = 127
+outline_render_priority = 126
+modulate = Color(1, 1, 0, 1)
+text = "Comet"
+font = ExtResource("14_annrq")
