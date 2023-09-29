@@ -1,4 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://48e87pa5n3hx"]
+[gd_scene load_steps=8 format=3 uid="uid://48e87pa5n3hx"]
+
+[ext_resource type="Script" path="res://game/bricks/brick.gd" id="1_j1n17"]
 
 [sub_resource type="Gradient" id="Gradient_rcs6v"]
 
@@ -13,18 +15,19 @@ noise = SubResource("FastNoiseLite_h5hhq")
 albedo_color = Color(0, 0, 0, 1)
 emission_enabled = true
 emission = Color(1, 0.839216, 0.301961, 1)
-emission_energy_multiplier = 1.3
+emission_energy_multiplier = 1.5
 emission_texture = SubResource("NoiseTexture2D_qoo2o")
 uv1_scale = Vector3(3, 2, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_w7ygq"]
 material = SubResource("StandardMaterial3D_13eid")
-size = Vector3(2, 1, 1)
+size = Vector3(1.9, 0.9, 0.9)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_upci0"]
 size = Vector3(2, 1, 1)
 
-[node name="Node3D" type="Area3D"]
+[node name="Brick" type="StaticBody3D"]
+script = ExtResource("1_j1n17")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 gi_mode = 0
