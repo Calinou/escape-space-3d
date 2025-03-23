@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://48e87pa5n3hx"]
 
-[ext_resource type="Script" path="res://game/bricks/brick.gd" id="1_j1n17"]
+[ext_resource type="Script" uid="uid://ca34dgxewmipk" path="res://game/bricks/brick.gd" id="1_j1n17"]
 
 [sub_resource type="Gradient" id="Gradient_b5tbu"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -43,9 +43,9 @@ curve = SubResource("Curve_pq1se")
 emission_shape = 3
 emission_box_extents = Vector3(0.8, 0.4, 0.4)
 spread = 180.0
-gravity = Vector3(0, 0, 0)
 initial_velocity_min = 10.0
 initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
 damping_min = 25.0
 damping_max = 255.0
 scale_min = 0.2
@@ -230,8 +230,8 @@ tracks/5/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oo8hc"]
 _data = {
-"RESET": SubResource("Animation_vy7fl"),
-"destroy": SubResource("Animation_eagsx")
+&"RESET": SubResource("Animation_vy7fl"),
+&"destroy": SubResource("Animation_eagsx")
 }
 
 [node name="Brick" type="StaticBody3D"]

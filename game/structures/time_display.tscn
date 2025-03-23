@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://cdrkc4wr0vviy"]
 
 [ext_resource type="FontFile" uid="uid://d07hcp3odal6b" path="res://game/fonts/segment_7_standard.otf" id="1_c2uyo"]
-[ext_resource type="Script" path="res://game/structures/time_display.gd" id="1_hbo8s"]
+[ext_resource type="Script" uid="uid://kmar3jn82dor" path="res://game/structures/time_display.gd" id="1_hbo8s"]
 
 [sub_resource type="Gradient" id="Gradient_ssto7"]
 offsets = PackedFloat32Array(0, 0.5, 1)

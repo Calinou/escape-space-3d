@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://bgj64kqq8u8fw"]
 
-[ext_resource type="Script" path="res://game/structures/teleport.gd" id="1_xtb75"]
+[ext_resource type="Script" uid="uid://c4tjg7cqjefxw" path="res://game/structures/teleport.gd" id="1_xtb75"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_eep2u"]
 size = Vector3(2, 2, 2)

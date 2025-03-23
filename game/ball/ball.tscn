@@ -1,6 +1,6 @@
 [gd_scene load_steps=27 format=3 uid="uid://b8wrfu06obbyd"]
 
-[ext_resource type="Script" path="res://game/ball/ball.gd" id="1_vrjnt"]
+[ext_resource type="Script" uid="uid://xdkg6tbjou6t" path="res://game/ball/ball.gd" id="1_vrjnt"]
 [ext_resource type="AudioStream" uid="uid://d1uig40f46fm7" path="res://game/ball/bounce.0.wav" id="2_5adv4"]
 [ext_resource type="AudioStream" uid="uid://cge7rtf523300" path="res://game/ball/bounce.1.wav" id="3_qjfjt"]
 [ext_resource type="AudioStream" uid="uid://dgw56pbctvayd" path="res://game/ball/bounce.2.wav" id="4_yldq2"]
@@ -112,13 +112,9 @@ rings = 2
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_cmy56"]
 streams_count = 4
 stream_0/stream = ExtResource("2_5adv4")
-stream_0/weight = 1.0
 stream_1/stream = ExtResource("3_qjfjt")
-stream_1/weight = 1.0
 stream_2/stream = ExtResource("4_yldq2")
-stream_2/weight = 1.0
 stream_3/stream = ExtResource("5_x7coo")
-stream_3/weight = 1.0
 
 [node name="Ball" type="RigidBody3D"]
 axis_lock_linear_y = true
