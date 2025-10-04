@@ -261,7 +261,7 @@ draw_pass_1 = SubResource("QuadMesh_reyig")
 unique_name_in_owner = true
 process_mode = 1
 libraries = {
-"": SubResource("AnimationLibrary_oo8hc")
+&"": SubResource("AnimationLibrary_oo8hc")
 }
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]

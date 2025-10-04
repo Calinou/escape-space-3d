@@ -48,13 +48,13 @@ cellular_jitter = 4.0
 cellular_return_type = 6
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gppqn"]
+noise = SubResource("FastNoiseLite_fr1s0")
 seamless = true
 as_normal_map = true
-noise = SubResource("FastNoiseLite_fr1s0")
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_leplp"]
-seamless = true
 noise = SubResource("FastNoiseLite_fr1s0")
+seamless = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c0cxx"]
 transparency = 1
@@ -86,8 +86,8 @@ texture_filter = 5
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_61wtk"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_byh5v"]
-seamless = true
 noise = SubResource("FastNoiseLite_61wtk")
+seamless = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3s0x5"]
 albedo_texture = ExtResource("2_uyupd")
