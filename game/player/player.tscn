@@ -1,6 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://bcyjl4mely6oa"]
+[gd_scene format=3 uid="uid://bcyjl4mely6oa"]
 
-[ext_resource type="Script" uid="uid://dxtj6yjj0kj1n" path="res://game/player/player.gd" id="1_75vtu"]
+[ext_resource type="Script" uid="uid://dhq07xp8wkf0" path="res://game/player/player.gd" id="1_75vtu"]
 [ext_resource type="FontFile" uid="uid://dsjfgvdmaeepe" path="res://game/fonts/tomorrow_semi_bold_italic.ttf" id="2_nd0i5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hdu5j"]
@@ -78,7 +78,7 @@ particles_anim_loop = false
 [sub_resource type="QuadMesh" id="QuadMesh_i4jvs"]
 material = SubResource("StandardMaterial3D_nd14y")
 
-[node name="Player" type="RigidBody3D"]
+[node name="Player" type="RigidBody3D" unique_id=147131680]
 axis_lock_linear_y = true
 physics_material_override = SubResource("PhysicsMaterial_hdu5j")
 can_sleep = false
@@ -87,31 +87,30 @@ custom_integrator = true
 continuous_cd = true
 script = ExtResource("1_75vtu")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=973697419]
 shape = SubResource("BoxShape3D_ssaee")
 
-[node name="BlobShadow" type="Decal" parent="."]
+[node name="BlobShadow" type="Decal" parent="." unique_id=785080156]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.2, 0)
 size = Vector3(3, 6, 1.5)
 texture_albedo = SubResource("GradientTexture2D_s46i7")
 upper_fade = 0.0
 lower_fade = 1.0
 
-[node name="Paddle" type="MeshInstance3D" parent="."]
+[node name="Paddle" type="MeshInstance3D" parent="." unique_id=408409977]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 gi_mode = 2
 mesh = SubResource("BoxMesh_0c5wu")
-skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_0wh7i")
 
-[node name="Character" type="MeshInstance3D" parent="Paddle"]
+[node name="Character" type="MeshInstance3D" parent="Paddle" unique_id=799692015]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, -0.2)
 gi_mode = 2
 mesh = SubResource("CapsuleMesh_88i3q")
 surface_material_override/0 = SubResource("StandardMaterial3D_xewr8")
 
-[node name="ScoreLabel" type="Label3D" parent="Paddle"]
+[node name="ScoreLabel" type="Label3D" parent="Paddle" unique_id=1093888399]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.14, 0.45)
 pixel_size = 0.0125
@@ -120,13 +119,13 @@ text = "800"
 font = ExtResource("2_nd0i5")
 outline_size = 6
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1711561582]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.573577, 0.819152, 0, -0.819152, 0.573577, 0, 10, 5.5)
 fov = 74.0
 near = 0.1
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=568511633]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0)
 light_color = Color(0.891667, 0.75, 1, 1)
 light_energy = 0.4
@@ -135,7 +134,7 @@ light_bake_mode = 0
 omni_range = 7.0
 omni_attenuation = 2.0
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1792099686]
 amount = 400
 lifetime = 0.25
 preprocess = 0.25

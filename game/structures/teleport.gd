@@ -6,3 +6,4 @@ func _on_body_entered(body: Node3D) -> void:
 	if body is Player:
 		# Teleport the player to the destination.
 		body.position = destination
+		body.reset_physics_interpolation()

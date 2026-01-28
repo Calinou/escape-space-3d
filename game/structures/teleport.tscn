@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bgj64kqq8u8fw"]
+[gd_scene format=3 uid="uid://bgj64kqq8u8fw"]
 
 [ext_resource type="Script" uid="uid://c4tjg7cqjefxw" path="res://game/structures/teleport.gd" id="1_xtb75"]
 
@@ -57,17 +57,17 @@ rings = 1
 cap_top = false
 cap_bottom = false
 
-[node name="Teleport" type="Area3D"]
+[node name="Teleport" type="Area3D" unique_id=167022298]
 script = ExtResource("1_xtb75")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1880750428]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_eep2u")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1296749843]
 mesh = SubResource("BoxMesh_cjbs8")
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=494695745]
 cast_shadow = 0
 gi_mode = 0
 amount = 25

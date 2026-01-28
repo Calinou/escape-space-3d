@@ -1,4 +1,4 @@
-[gd_resource type="MeshLibrary" load_steps=24 format=3 uid="uid://dfny74r7uljuc"]
+[gd_resource type="MeshLibrary" format=3 uid="uid://dfny74r7uljuc"]
 
 [ext_resource type="Texture2D" uid="uid://behm13x4x35kr" path="res://game/tiles/textures/Concrete044C_1K-JPG_Color.jpg" id="1_3vwxv"]
 [ext_resource type="Texture2D" uid="uid://bw6q2bm0junlx" path="res://game/tiles/textures/DiamondPlate008C_1K-JPG_Metalness.jpg" id="4_52mhm"]

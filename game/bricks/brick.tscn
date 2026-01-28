@@ -1,6 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://48e87pa5n3hx"]
+[gd_scene format=3 uid="uid://48e87pa5n3hx"]
 
-[ext_resource type="Script" uid="uid://ca34dgxewmipk" path="res://game/bricks/brick.gd" id="1_j1n17"]
+[ext_resource type="Script" uid="uid://c2ds4kr84gad7" path="res://game/bricks/brick.gd" id="1_j1n17"]
 
 [sub_resource type="Gradient" id="Gradient_b5tbu"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -234,18 +234,18 @@ _data = {
 &"destroy": SubResource("Animation_eagsx")
 }
 
-[node name="Brick" type="StaticBody3D"]
+[node name="Brick" type="StaticBody3D" unique_id=204386004]
 script = ExtResource("1_j1n17")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=605913738]
 process_mode = 1
 gi_mode = 0
 mesh = SubResource("BoxMesh_w7ygq")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=950856804]
 shape = SubResource("BoxShape3D_upci0")
 
-[node name="Explosion" type="GPUParticles3D" parent="."]
+[node name="Explosion" type="GPUParticles3D" parent="." unique_id=301341188]
 process_mode = 1
 emitting = false
 amount = 500
@@ -257,14 +257,12 @@ interpolate = false
 process_material = SubResource("ParticleProcessMaterial_yihal")
 draw_pass_1 = SubResource("QuadMesh_reyig")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1419464991]
 unique_name_in_owner = true
 process_mode = 1
-libraries = {
-&"": SubResource("AnimationLibrary_oo8hc")
-}
+libraries/ = SubResource("AnimationLibrary_oo8hc")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1734586114]
 visible = false
 light_color = Color(1, 0.862745, 0.501961, 1)
 light_bake_mode = 0

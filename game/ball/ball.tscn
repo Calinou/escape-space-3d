@@ -1,6 +1,6 @@
-[gd_scene load_steps=27 format=3 uid="uid://b8wrfu06obbyd"]
+[gd_scene format=3 uid="uid://b8wrfu06obbyd"]
 
-[ext_resource type="Script" uid="uid://xdkg6tbjou6t" path="res://game/ball/ball.gd" id="1_vrjnt"]
+[ext_resource type="Script" uid="uid://1abjd2p8rq0e" path="res://game/ball/ball.gd" id="1_vrjnt"]
 [ext_resource type="AudioStream" uid="uid://d1uig40f46fm7" path="res://game/ball/bounce.0.wav" id="2_5adv4"]
 [ext_resource type="AudioStream" uid="uid://cge7rtf523300" path="res://game/ball/bounce.1.wav" id="3_qjfjt"]
 [ext_resource type="AudioStream" uid="uid://dgw56pbctvayd" path="res://game/ball/bounce.2.wav" id="4_yldq2"]
@@ -116,23 +116,23 @@ stream_1/stream = ExtResource("3_qjfjt")
 stream_2/stream = ExtResource("4_yldq2")
 stream_3/stream = ExtResource("5_x7coo")
 
-[node name="Ball" type="RigidBody3D"]
+[node name="Ball" type="RigidBody3D" unique_id=1937073333]
 axis_lock_linear_y = true
 physics_material_override = SubResource("PhysicsMaterial_ada03")
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_vrjnt")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1539149908]
 shape = SubResource("SphereShape3D_5e15e")
 
-[node name="Comet" type="MeshInstance3D" parent="."]
+[node name="Comet" type="MeshInstance3D" parent="." unique_id=1235923121]
 unique_name_in_owner = true
 gi_mode = 0
 mesh = SubResource("SphereMesh_eobi2")
 surface_material_override/0 = SubResource("StandardMaterial3D_3pgsi")
 
-[node name="Trail" type="GPUParticles3D" parent="."]
+[node name="Trail" type="GPUParticles3D" parent="." unique_id=877057446]
 amount = 100
 lifetime = 0.5
 preprocess = 0.5
@@ -143,21 +143,21 @@ draw_order = 1
 process_material = SubResource("ParticleProcessMaterial_gb0qv")
 draw_pass_1 = SubResource("QuadMesh_2oj68")
 
-[node name="MotionBlur" type="GPUParticles3D" parent="."]
+[node name="MotionBlur" type="GPUParticles3D" parent="." unique_id=212034705]
 lifetime = 0.07
 fixed_fps = 0
 interpolate = false
 process_material = SubResource("ParticleProcessMaterial_lurx5")
 draw_pass_1 = SubResource("SphereMesh_g8neb")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=943725148]
 light_color = Color(1, 0.705882, 0.25098, 1)
 light_energy = 1.25
 light_size = 0.25
 light_bake_mode = 0
 omni_attenuation = 2.0
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1319949486]
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_cmy56")
 unit_size = 20.0
